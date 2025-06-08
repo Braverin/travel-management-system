@@ -15,7 +15,7 @@ export default function DashboardPage() {
     <>
       <DashboardShell>
         <DashboardHeader
-          heading="XXX旅行社业务管理系统"
+          heading="JOJO旅行社业务管理系统"
           description="欢迎使用旅游业务管理系统，管理您的旅游团和客户申请"
         >
           <div className="flex items-center gap-2">
