@@ -18,11 +18,23 @@ export async function createApplication(data: z.infer<typeof applicationWithAmou
     // 生成申请ID
     const applicationId = `APP${String(applicationCounter++).padStart(6, "0")}`
 
-    // 构造新申请对象
+    // 通过tourId查找tour名称
+    const tours = [
+      { id: "sanya", name: "三亚6日游" },
+      { id: "beijing", name: "北京5日游" },
+      { id: "xiamen", name: "厦门4日游" },
+      { id: "yunnan", name: "云南8日游" },
+      { id: "guilin", name: "桂林7日游" },
+    ]
+    const tourObj = tours.find(t => t.id === validatedData.tourId)
+    const tourName = tourObj ? tourObj.name : validatedData.tourId
+
+    // 构造新申请对象，存储tour名称
     const application = {
       id: applicationId,
       ...validatedData,
-      // 将日期对象转换为ISO字符串，以便在客户端正确显示
+      tour: tourName,
+      // 移除tourId字段
       departureDate: validatedData.departureDate.toISOString(),
       applicationDate: validatedData.applicationDate.toISOString(),
     }

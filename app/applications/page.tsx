@@ -1,3 +1,4 @@
+"use client"
 import type { Metadata } from "next"
 import { CalendarIcon, SearchIcon } from "lucide-react"
 import * as XLSX from "xlsx"
@@ -11,11 +12,6 @@ import { DashboardShell } from "@/components/dashboard-shell"
 import { DateRangePicker } from "@/components/date-range-picker"
 import { ApplicationStats } from "@/components/applications/application-stats"
 import { NewApplicationButton } from "@/components/applications/new-application-button"
-
-export const metadata: Metadata = {
-  title: "申请管理 | JOJO旅行社业务管理系统",
-  description: "管理旅游申请、订金和余款",
-}
 
 export default function ApplicationsPage() {
   return (

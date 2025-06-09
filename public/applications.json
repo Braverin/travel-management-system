@@ -317,5 +317,19 @@
     "totalAmount": 8000,
     "status": "pending",
     "applicationDate": "2025-06-09T10:12:49.831Z"
+  },
+  {
+    "id": "APP001050",
+    "responsiblePerson": "武汉理工",
+    "phone": "18271110697",
+    "tourId": "yunnan",
+    "departureDate": "2025-07-20T00:00:00.000Z",
+    "adultCount": 2,
+    "childCount": 3,
+    "deposit": 1900,
+    "totalAmount": 14000,
+    "status": "pending",
+    "applicationDate": "2025-06-09T10:32:39.597Z",
+    "tour": "云南8日游"
   }
 ]
