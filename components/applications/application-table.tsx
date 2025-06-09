@@ -26,6 +26,7 @@ import {
 } from "@/components/ui/dialog"
 import { ApplicationDetails } from "@/components/applications/application-details"
 import { useToast } from "@/hooks/use-toast"
+import { cancelApplication, updateApplicationStatus, getApplicationById } from "@/lib/actions/application-actions"
 
 interface ApplicationTableProps {
   status?: string
@@ -81,50 +82,66 @@ export function ApplicationTable({ status }: ApplicationTableProps) {
     }
   }
 
-  const handleRecordPayment = (application: any) => {
-    // 根据当前状态确定要记录的付款类型
+  // 记录定金/全款，写入 applications.json
+  const handleRecordPayment = async (application: any) => {
     const paymentType = application.status === "pending" ? "订金" : "余款"
-
-    // 更新申请状态
     const newStatus = application.status === "pending" ? "deposit" : "completed"
-
-    // 更新申请列表
-    setApplications(
-      applications.map((app) =>
-        app.id === application.id
-          ? {
-              ...app,
-              status: newStatus,
-            }
-          : app,
-      ),
-    )
-
-    // 显示成功提示
+    await updateApplicationStatus(application.id, newStatus)
+    // 重新拉取最新数据，保证和json文件同步
+    fetch("/applications.json")
+      .then(res => res.json())
+      .then(res => {
+        let data = res || []
+        if (status && status !== "all") {
+          data = data.filter((item: any) => item.status === status)
+        }
+        setApplications(data)
+      })
     toast({
       title: `${paymentType}支付成功`,
       description: `申请 ${application.id} 的${paymentType}已成功记录`,
     })
   }
 
-  const handleCancelApplication = (application: any) => {
-    // 更新申请状态为已取消
-    setApplications(
-      applications.map((app) =>
-        app.id === application.id
-          ? {
-              ...app,
-              status: "cancelled",
-            }
-          : app,
-      ),
-    )
-
-    // 显示成功提示
+  // 取消申请（写入 applications.json）
+  const handleCancelApplication = async (application: any) => {
+    await cancelApplication(application.id)
+    // 取消后重新拉取最新数据，避免本地状态错乱
+    fetch("/applications.json")
+      .then(res => res.json())
+      .then(res => {
+        let data = res || []
+        if (status && status !== "all") {
+          data = data.filter((item: any) => item.status === status)
+        }
+        setApplications(data)
+      })
     toast({
       title: "申请已取消",
       description: `申请 ${application.id} 已成功取消`,
     })
+  }
+
+  // 修改订单状态
+  const handleUpdateStatus = async (application: any, newStatus: string) => {
+    await updateApplicationStatus(application.id, newStatus)
+    setApplications(
+      applications.map((app) =>
+        app.id === application.id
+          ? { ...app, status: newStatus }
+          : app,
+      ),
+    )
+    toast({
+      title: "订单状态已更新",
+      description: `申请 ${application.id} 状态已修改为 ${newStatus}`,
+    })
+  }
+
+  // 查看订单详情（从json文件获取最新数据）
+  const handleViewDetails = async (application: any) => {
+    const detail = await getApplicationById(application.id)
+    setViewApplication(detail)
   }
 
   // 导出为 Excel
@@ -231,7 +248,7 @@ export function ApplicationTable({ status }: ApplicationTableProps) {
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end">
                           <DropdownMenuLabel>操作</DropdownMenuLabel>
-                          <DropdownMenuItem onClick={() => setViewApplication(application)}>
+                          <DropdownMenuItem onClick={() => handleViewDetails(application)}>
                             <Eye className="mr-2 h-4 w-4"/>
                             查看详情
                           </DropdownMenuItem>

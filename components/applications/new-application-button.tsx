@@ -154,6 +154,7 @@ export function NewApplicationButton() {
       // 添加计算出的金额到表单数据
       const applicationData = {
         ...data,
+        tour: selectedTour?.name || "",
         deposit,
         totalAmount: total,
         status: "pending",

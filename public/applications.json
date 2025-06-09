@@ -11,7 +11,8 @@
     "totalCount": 3,
     "deposit": 1000,
     "totalAmount": 6000,
-    "status": "pending"
+    "status": "deposit",
+    "depositMethod": "现金"
   },
   {
     "id": "APP001002",
@@ -25,7 +26,8 @@
     "totalCount": 1,
     "deposit": 500,
     "totalAmount": 3000,
-    "status": "deposit"
+    "status": "deposit",
+    "depositMethod": "微信"
   },
   {
     "id": "APP001003",
@@ -39,7 +41,9 @@
     "totalCount": 5,
     "deposit": 2000,
     "totalAmount": 12000,
-    "status": "completed"
+    "status": "completed",
+    "depositMethod": "现金",
+    "balanceMethod": "微信"
   },
   {
     "id": "APP001004",
@@ -53,7 +57,8 @@
     "totalCount": 2,
     "deposit": 800,
     "totalAmount": 4000,
-    "status": "pending"
+    "status": "deposit",
+    "depositMethod": "支付宝"
   },
   {
     "id": "APP001005",
@@ -67,7 +72,8 @@
     "totalCount": 5,
     "deposit": 1800,
     "totalAmount": 10000,
-    "status": "deposit"
+    "status": "deposit",
+    "depositMethod": "微信"
   },
   {
     "id": "APP001006",
@@ -81,7 +87,9 @@
     "totalCount": 2,
     "deposit": 600,
     "totalAmount": 3500,
-    "status": "completed"
+    "status": "completed",
+    "depositMethod": "现金",
+    "balanceMethod": "微信"
   },
   {
     "id": "APP001007",
@@ -95,7 +103,9 @@
     "totalCount": 4,
     "deposit": 1600,
     "totalAmount": 9000,
-    "status": "cancelled"
+    "status": "cancelled",
+    "depositMethod": "支付宝",
+    "balanceMethod": "现金"
   },
   {
     "id": "APP001008",
@@ -109,7 +119,8 @@
     "totalCount": 3,
     "deposit": 1200,
     "totalAmount": 7000,
-    "status": "pending"
+    "status": "pending",
+    "depositMethod": "微信"
   },
   {
     "id": "APP001009",
@@ -123,7 +134,8 @@
     "totalCount": 3,
     "deposit": 1000,
     "totalAmount": 6000,
-    "status": "deposit"
+    "status": "deposit",
+    "depositMethod": "现金"
   },
   {
     "id": "APP001010",
@@ -137,7 +149,9 @@
     "totalCount": 3,
     "deposit": 900,
     "totalAmount": 5000,
-    "status": "completed"
+    "status": "completed",
+    "depositMethod": "支付宝",
+    "balanceMethod": "现金"
   },
   {
     "id": "APP001011",
@@ -151,7 +165,8 @@
     "totalCount": 2,
     "deposit": 800,
     "totalAmount": 4000,
-    "status": "pending"
+    "status": "cancelled",
+    "depositMethod": "微信"
   },
   {
     "id": "APP001012",
@@ -165,7 +180,8 @@
     "totalCount": 4,
     "deposit": 1400,
     "totalAmount": 8000,
-    "status": "deposit"
+    "status": "cancelled",
+    "depositMethod": "现金"
   },
   {
     "id": "APP001013",
@@ -179,7 +195,9 @@
     "totalCount": 4,
     "deposit": 1600,
     "totalAmount": 9000,
-    "status": "completed"
+    "status": "completed",
+    "depositMethod": "现金",
+    "balanceMethod": "微信"
   },
   {
     "id": "APP001014",
@@ -207,7 +225,7 @@
     "totalCount": 3,
     "deposit": 1200,
     "totalAmount": 7000,
-    "status": "pending"
+    "status": "cancelled"
   },
   {
     "id": "APP001016",
@@ -221,7 +239,8 @@
     "totalCount": 3,
     "deposit": 1000,
     "totalAmount": 6000,
-    "status": "deposit"
+    "status": "deposit",
+    "depositMethod": "现金"
   },
   {
     "id": "APP001017",
@@ -235,7 +254,9 @@
     "totalCount": 3,
     "deposit": 900,
     "totalAmount": 5000,
-    "status": "completed"
+    "status": "completed",
+    "depositMethod": "支付宝",
+    "balanceMethod": "现金"
   },
   {
     "id": "APP001018",
@@ -249,7 +270,7 @@
     "totalCount": 2,
     "deposit": 800,
     "totalAmount": 4000,
-    "status": "pending"
+    "status": "cancelled"
   },
   {
     "id": "APP001019",
@@ -263,7 +284,8 @@
     "totalCount": 4,
     "deposit": 1400,
     "totalAmount": 8000,
-    "status": "deposit"
+    "status": "cancelled",
+    "depositMethod": "现金"
   },
   {
     "id": "APP001020",
@@ -277,59 +299,57 @@
     "totalCount": 4,
     "deposit": 1600,
     "totalAmount": 9000,
-    "status": "completed"
+    "status": "completed",
+    "depositMethod": "支付宝",
+    "balanceMethod": "现金"
   },
   {
-    "id": "APP001050",
+    "id": "APP001021",
     "responsiblePerson": "徐子阳",
-    "phone": "18827054180",
+    "phone": "18888888888",
     "tourId": "sanya",
     "departureDate": "2025-06-15T00:00:00.000Z",
-    "adultCount": 1,
-    "childCount": 1,
-    "deposit": 2300,
-    "totalAmount": 4500,
-    "status": "pending",
-    "applicationDate": "2025-06-09T10:00:26.893Z"
+    "adultCount": 3,
+    "childCount": 2,
+    "deposit": 6100,
+    "totalAmount": 12000,
+    "status": "cancelled",
+    "applicationDate": "2025-06-09T12:42:30.942Z",
+    "tour": "三亚6日游",
+    "totalCount": 5,
+    "depositMethod": "支付宝",
+    "balanceMethod": "银行卡"
   },
   {
-    "id": "APP001051",
-    "responsiblePerson": "邓翔允",
-    "phone": "18271110695",
+    "id": "APP001022",
+    "responsiblePerson": "哇塞",
+    "phone": "18888888889",
+    "tourId": "yunnan",
+    "departureDate": "2025-07-20T00:00:00.000Z",
+    "adultCount": 19,
+    "childCount": 9,
+    "deposit": 12200,
+    "totalAmount": 94000,
+    "status": "cancelled",
+    "applicationDate": "2025-06-09T12:54:07.209Z",
+    "tour": "云南8日游",
+    "totalCount": 28,
+    "depositMethod": "微信"
+  },
+  {
+    "id": "APP001023",
+    "responsiblePerson": "徐子阳",
+    "phone": "18888888889",
     "tourId": "beijing",
-    "departureDate": "2025-07-01T00:00:00.000Z",
+    "departureDate": "2025-07-10T00:00:00.000Z",
     "adultCount": 2,
-    "childCount": 2,
-    "deposit": 2600,
-    "totalAmount": 7400,
-    "status": "pending",
-    "applicationDate": "2025-06-09T10:01:25.681Z"
-  },
-  {
-    "id": "APP001050",
-    "responsiblePerson": "小帅",
-    "phone": "18827054180",
-    "tourId": "yunnan",
-    "departureDate": "2025-07-20T00:00:00.000Z",
-    "adultCount": 1,
-    "childCount": 2,
-    "deposit": 1100,
-    "totalAmount": 8000,
-    "status": "pending",
-    "applicationDate": "2025-06-09T10:12:49.831Z"
-  },
-  {
-    "id": "APP001050",
-    "responsiblePerson": "武汉理工",
-    "phone": "18271110697",
-    "tourId": "yunnan",
-    "departureDate": "2025-07-20T00:00:00.000Z",
-    "adultCount": 2,
-    "childCount": 3,
-    "deposit": 1900,
-    "totalAmount": 14000,
-    "status": "pending",
-    "applicationDate": "2025-06-09T10:32:39.597Z",
-    "tour": "云南8日游"
+    "childCount": 1,
+    "deposit": 1300,
+    "totalAmount": 6200,
+    "status": "completed",
+    "applicationDate": "2025-06-09T13:00:43.833Z",
+    "tour": "北京5日游",
+    "totalCount": 3,
+    "depositMethod": "现金"
   }
 ]

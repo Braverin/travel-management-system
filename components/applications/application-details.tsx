@@ -33,32 +33,38 @@ export function ApplicationDetails({ application }: ApplicationDetailsProps) {
       isResponsible: i === 0,
       type: isAdult ? "成人" : "儿童",
       idNumber: `${isAdult ? "3" : "4"}${Math.floor(Math.random() * 9) + 1}${Array.from({ length: 16 }, () => Math.floor(Math.random() * 10)).join("")}`,
-      phone:
-        i === 0
-          ? application.phone
-          : `1${Math.floor(Math.random() * 9) + 1}${Array.from({ length: 9 }, () => Math.floor(Math.random() * 10)).join("")}`,
+      phone: isAdult
+        ? (i === 0 ? application.phone : `1${Math.floor(Math.random() * 9) + 1}${Array.from({ length: 9 }, () => Math.floor(Math.random() * 10)).join("")}`)
+        : "-",
     }
   })
 
   // 模拟支付记录
-  const payments = [
-    {
+  const applicationDate = new Date(application.applicationDate)
+  const departureDate = new Date(application.departureDate)
+  const paymentMethods = ["现金", "微信", "支付宝", "银行卡"]
+  function getRandomMethod() {
+    return paymentMethods[Math.floor(Math.random() * paymentMethods.length)]
+  }
+  // 支付记录逻辑优化：只要有 depositMethod 就显示订金，只要有 balanceMethod 就显示余款
+  const payments = []
+  if (application.depositMethod) {
+    payments.push({
       id: 1,
       type: "订金",
       amount: application.deposit,
-      date: new Date(application.applicationDate.getTime() + 1000 * 60 * 60 * 24),
-      method: "现金",
+      date: new Date(applicationDate.getTime() + 1000 * 60 * 60 * 24),
+      method: application.depositMethod,
       status: "已支付",
-    },
-  ]
-
-  if (application.status === "completed") {
+    })
+  }
+  if (application.balanceMethod) {
     payments.push({
       id: 2,
       type: "余款",
       amount: application.totalAmount - application.deposit,
-      date: new Date(application.departureDate.getTime() - 1000 * 60 * 60 * 24 * 15),
-      method: "银行转账",
+      date: new Date(departureDate.getTime() - 1000 * 60 * 60 * 24 * 15),
+      method: application.balanceMethod,
       status: "已支付",
     })
   }
