@@ -3,6 +3,8 @@
 import { revalidatePath } from "next/cache"
 import { z } from "zod"
 import { applicationWithAmountsSchema } from "@/lib/validations/application"
+import fs from "fs"
+import path from "path"
 
 // 模拟数据库中的申请ID计数器
 let applicationCounter = 1050
@@ -16,8 +18,7 @@ export async function createApplication(data: z.infer<typeof applicationWithAmou
     // 生成申请ID
     const applicationId = `APP${String(applicationCounter++).padStart(6, "0")}`
 
-    // 在实际应用中，这里会将数据保存到数据库
-    // 这里我们模拟一个成功的响应
+    // 构造新申请对象
     const application = {
       id: applicationId,
       ...validatedData,
@@ -25,6 +26,22 @@ export async function createApplication(data: z.infer<typeof applicationWithAmou
       departureDate: validatedData.departureDate.toISOString(),
       applicationDate: validatedData.applicationDate.toISOString(),
     }
+
+    // 读取 applications.json
+    const filePath = path.join(process.cwd(), "public", "applications.json")
+    let applications = []
+    if (fs.existsSync(filePath)) {
+      const fileContent = fs.readFileSync(filePath, "utf-8")
+      try {
+        applications = JSON.parse(fileContent)
+      } catch {
+        applications = []
+      }
+    }
+    // 追加新申请
+    applications.push(application)
+    // 写回文件
+    fs.writeFileSync(filePath, JSON.stringify(applications, null, 2), "utf-8")
 
     // 模拟网络延迟
     await new Promise((resolve) => setTimeout(resolve, 1000))
