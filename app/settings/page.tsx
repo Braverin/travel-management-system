@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import { Settings, Users, Shield, FileText } from "lucide-react"
-
+import * as XLSX from "xlsx"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { DashboardHeader } from "@/components/dashboard-header"
@@ -11,7 +11,7 @@ import { SecuritySettings } from "@/components/settings/security-settings"
 import { SystemLogs } from "@/components/settings/system-logs"
 
 export const metadata: Metadata = {
-  title: "系统设置 | XXX旅行社业务管理系统",
+  title: "系统设置 | JOJO旅行社业务管理系统",
   description: "系统配置、用户管理和安全设置",
 }
 

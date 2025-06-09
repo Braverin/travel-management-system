@@ -2,7 +2,7 @@
 
 import { SetStateAction, useState} from "react"
 import {Search, Download, RefreshCw} from "lucide-react"
-
+import * as XLSX from "xlsx"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import {
@@ -60,20 +60,19 @@ export function SystemLogs() {
     setLogs(generateLogs())
   }
 
-  const handleExport = () => {
-    // 模拟导出功能
-    const csvContent = [
-      ["时间", "模块", "操作", "用户", "消息"],
-      ...filteredLogs.map((log) => [log.timestamp.toLocaleString(), log.module, log.action, log.user, log.message]),
-    ]
-        .map((row) => row.join(","))
-        .join("\n")
 
-    const blob = new Blob([csvContent], {type: "text/csv;charset=utf-8;"})
-    const link = document.createElement("a")
-    link.href = URL.createObjectURL(blob)
-    link.download = `system_logs_${new Date().toISOString().split("T")[0]}.csv`
-    link.click()
+  const handleExport = () => {
+    const excelData = filteredLogs.map((log) => ({
+      时间: log.timestamp.toLocaleString(),
+      模块: log.module,
+      操作: log.action,
+      用户: log.user,
+      消息: log.message,
+    }))
+    const ws = XLSX.utils.json_to_sheet(excelData)
+    const wb = XLSX.utils.book_new()
+    XLSX.utils.book_append_sheet(wb, ws, "系统日志")
+    XLSX.writeFile(wb, `system_logs_${new Date().toISOString().split("T")[0]}.xlsx`)
   }
 
   return (

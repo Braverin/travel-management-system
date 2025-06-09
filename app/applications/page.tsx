@@ -1,6 +1,6 @@
 import type { Metadata } from "next"
 import { CalendarIcon, SearchIcon } from "lucide-react"
-
+import * as XLSX from "xlsx"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
@@ -13,7 +13,7 @@ import { ApplicationStats } from "@/components/applications/application-stats"
 import { NewApplicationButton } from "@/components/applications/new-application-button"
 
 export const metadata: Metadata = {
-  title: "申请管理 | XXX旅行社业务管理系统",
+  title: "申请管理 | JOJO旅行社业务管理系统",
   description: "管理旅游申请、订金和余款",
 }
 
@@ -39,12 +39,6 @@ export default function ApplicationsPage() {
             />
           </div>
           <DateRangePicker />
-        </div>
-        <div className="flex items-center gap-2">
-          <Button variant="outline" size="sm">
-            <CalendarIcon className="mr-2 h-4 w-4" />
-            导出数据
-          </Button>
         </div>
       </div>
 
