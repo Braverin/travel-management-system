@@ -51,7 +51,7 @@ export function MobileNav() {
       <SheetContent side="left" className="pr-0">
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center" onClick={() => setOpen(false)}>
-            <span className="font-bold">XXX旅行社</span>
+            <span className="font-bold">JOJO旅行社</span>
           </Link>
           <Button
             variant="ghost"
