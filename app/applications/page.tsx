@@ -16,7 +16,7 @@ import { NewApplicationButton } from "@/components/applications/new-application-
 export default function ApplicationsPage() {
   return (
     <DashboardShell>
-      <DashboardHeader heading="申请管理" description="查看和管理客户的旅游申请、订金和余款">
+      <DashboardHeader heading="JOJO旅行社" description="查看和管理客户的旅游申请、订金和余款">
         <div className="flex items-center gap-2">
           <NewApplicationButton />
         </div>
