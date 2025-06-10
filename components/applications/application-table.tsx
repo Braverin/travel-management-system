@@ -248,7 +248,7 @@ export function ApplicationTable({ status }: ApplicationTableProps) {
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end">
                           <DropdownMenuLabel>操作</DropdownMenuLabel>
-                          <DropdownMenuItem onClick={() => handleViewDetails(application)}>
+                          <DropdownMenuItem data-testid="view-detail" onClick={() => handleViewDetails(application)}>
                             <Eye className="mr-2 h-4 w-4"/>
                             查看详情
                           </DropdownMenuItem>
@@ -264,6 +264,7 @@ export function ApplicationTable({ status }: ApplicationTableProps) {
 
                           {application.status !== "completed" && application.status !== "cancelled" && (
                               <DropdownMenuItem
+                                  data-testid="record-deposit"
                                   onClick={() => handleRecordPayment(application)}
                                   className={application.status === "pending" ? "text-blue-500" : "text-green-500"}
                               >

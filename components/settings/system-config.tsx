@@ -14,7 +14,7 @@ export function SystemConfig() {
   const { toast } = useToast()
 
   const [config, setConfig] = useState({
-    companyName: "XXX旅行社",
+    companyName: "JOJO旅行社",
     companyAddress: "北京市朝阳区xxx街道xxx号",
     companyPhone: "010-12345678",
     companyEmail: "contact@xxx-travel.com",
@@ -49,7 +49,7 @@ export function SystemConfig() {
 
   const handleReset = () => {
     setConfig({
-      companyName: "XXX旅行社",
+      companyName: "JOJO旅行社",
       companyAddress: "北京市朝阳区xxx街道xxx号",
       companyPhone: "010-12345678",
       companyEmail: "contact@xxx-travel.com",

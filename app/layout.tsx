@@ -21,7 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <header className="sticky top-0 z-40 border-b bg-background">
               <div className="container flex h-16 items-center justify-between py-4">
                 <div className="flex items-center">
-                  <h1 className="text-xl font-bold mr-6">XXX旅行社</h1>
+                  <h1 className="text-xl font-bold mr-6">JOJO旅行社</h1>
                   <div className="hidden md:flex">
                     <MainNav />
                   </div>

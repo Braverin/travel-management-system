@@ -13,7 +13,7 @@ import { TourStats } from "@/components/tours/tour-stats"
 import { NewTourButton } from "@/components/tours/new-tour-button"
 
 export const metadata: Metadata = {
-  title: "旅游团管理 | XXX旅行社业务管理系统",
+  title: "旅游团管理 | JOJO旅行社业务管理系统",
   description: "管理旅游团信息、价格和出发日期",
 }
 
